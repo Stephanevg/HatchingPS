@@ -1,0 +1,12 @@
+[
+    {
+        "id":"0001",
+        "title":"Analyse Syntaxique de donnees",
+        "Abstract" :"Lors de cette presentation nous allons voir comment analyser, découper et recupérer de l'information pertinente à partir de données structurées ou non, et convertir le tout en object PowerShell.",
+        "PresenterName":"François Xavier Cat",
+        "Twitter": "https://twitter.com/lazywinadmin",
+        "WebSite":"https://www.lazywinadmin.com",
+        "Recording":"https://www.youtube.com/watch?v=sCd8YufeyUI"
+    }
+
+]

@@ -1,0 +1,39 @@
+[
+    {
+        "id":"0010",
+        "title":"PowerShell avec Freenas (Jerome Bezet-Torres)",
+        "Abstract" :"Coder Freenas avec powershell",
+        "PresenterName":"Jerome Bezet-Torres",
+        "Twitter": "https://twitter.com/jm2k69",
+        "WebSite":"",
+        "Recording":"https://www.youtube.com/watch?v=3OR143IPQ4o"
+    },
+    {
+        "id":"0010",
+        "title":"DBATools",
+        "Abstract" :"Coder DBATools avec powershell",
+        "PresenterName":"Olivier Miosec",
+        "Twitter": "https://twitter.com/OMiosec",
+        "WebSite":"",
+        "Recording":"https://www.youtube.com/watch?v=3OR143IPQ4o"
+    },
+    {
+        "id":"0010",
+        "title":"Better credentials",
+        "Abstract" :"Demonstration du module 'betterCredentials' pour la gestion des credentials sur Windows avec powershell",
+        "PresenterName":"Laurent Lienhard",
+        "Twitter": "https://twitter.com/IronTux",
+        "WebSite":"",
+        "Recording":"https://www.youtube.com/watch?v=3OR143IPQ4o"
+    },
+    {
+        "id":"0010",
+        "title":"PsClassUtils",
+        "Abstract" :"Demonstration du module 'PsClassUtils'",
+        "PresenterName":"Stéphane van Gulick",
+        "Twitter": "https://twitter.com/stephanevg",
+        "WebSite":"http://www.powershelldistrict.com",
+        "Recording":"https://www.youtube.com/watch?v=3OR143IPQ4o"
+    }
+
+]

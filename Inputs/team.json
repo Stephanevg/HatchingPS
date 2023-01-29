@@ -1,0 +1,33 @@
+{
+    "title":"Team Members",
+    "Members":[
+        {
+            "Name": "François Xavier cat",
+            "twitter": "https://twitter.com/lazywinadmin",
+            "WebSite": "https://lazywinadmin.github.io/",
+            "Github": "https://github.com/lazywinadmin",
+            "Description": "François-Xavier (FX) contribue activement à la communauté PowerShell depuis de nombreuses années, notamment à travers son blog LazyWinadmin et des outils/scripts qu’il met a disposition de tous sur Github/Technet Gallery/PowerShell Gallery. \br Francois-Xavier travaille actuellement dans le secteur financier en tant qu’Ingénieur systèmes. Il travaille regulièrement avec les produits telque Azure, Azure DevOps, Chef, Active Directory, System Center (SCCM/ConfigMgr, SCSM, Orchestrator/Scorch), SMA, VMware vSphere, Office365, …"
+        },
+        {
+            "Name": "Stéphane van Gulick",
+            "twitter": "https://twitter.com/stephanevg",
+            "WebSite": "https://stephanevg.github.io/",
+            "Github": "https://github.com/stephanevg",
+            "Description": "Le principale objectif de Stéphane est d’aider les services IT de réduire leurs coûts en implémentant des processes ainsi que l’automatisation adéquate utilisant Windows PowerShell. \br Stéphane à travaillé un peu partout en Europe (France, Belgique, Pays-Bas, Allemagne…) et est maintenant dans la région de Bâle (Suisse). Il aime aime particulièrement automatiser les produits de la gamme ‘system center’ (tel que SCVMM ou bien encore SCCM/ConfigMgr)."
+        },
+        {
+            "Name": "Olivier Miosec",
+            "twitter": "https://twitter.com/omiossec_med",
+            "WebSite": "https://dev.to/omiossec",
+            "Github": "https://github.com/omiossec",
+            "Description": "Parisien d’adoption mais à l’aise dans toutes les villes, Olivier a fait toute sa carrière dans le monde du Web et de l’hébergement où il a occupé des postes comme responsable R&D ou CTO. \br Il travaille en tant que consultant expert sur les problématiques DevOps, l’agilité des infras, le Cloud Public, la modernisation des infras, l’automatisation des processus et bien sur la programmation sur PowerShell. Ces principaux projets concernent Azure DevOps, Azure Functions, les infras sur Azure… Il aime particulièrement travailler avec PowerShell Core, VsCode et Git"
+        },
+        {
+            "Name": "Laurent Lienhard",
+            "twitter": "https://twitter.com/Irontux",
+            "WebSite": "N/A",
+            "Github": "https://github.com/LaurentLienhard",
+            "Description": "Analyste-programmeur de formation et Administrateur Systèmes depuis plus de 10 ans il n’en fallait pas plus pour tomber dans le PowerShelll ! \br Ce fut chose faite en 2016 par son adhésion au French PowerShell User Group. Depuis, il automatise le maximum de ces tâches quotidiennes d’Administration et essai d’en faire profiter la communauté à travers son blog naissant."
+        }
+    ]
+}

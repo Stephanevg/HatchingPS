@@ -1,0 +1,13 @@
+{
+    "global": {
+        "outputPath": "./output",
+        "inputsPath": "./inputs"
+    },
+    "assets" :[
+        {
+            "name":"bootstrap",
+            "type":"style",
+            "url":"URLTOBOOSTRAP"
+        }
+    ]   
+}

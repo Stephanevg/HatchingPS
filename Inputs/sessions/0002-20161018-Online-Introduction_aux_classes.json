@@ -1,0 +1,12 @@
+[
+    {
+        "id":"0002",
+        "title":"Introduction aux classes",
+        "Abstract" :"Dans cette présentation, après avoir répondu à la question: 'Qu'est-ce un objet?', Stéphane nous guideras à travers la création d'objets au travers des differentes versions de powershell, pour rapidement ce focaliser sur Powershell 5 et les Classes.",
+        "PresenterName":"Stéphane van Gulick",
+        "Twitter": "https://twitter.com/stephanevg",
+        "WebSite":"https://www.powershelldistrict.com",
+        "Recording":"https://www.youtube.com/watch?v=OuupQjlibAk&t="
+    }
+
+]
