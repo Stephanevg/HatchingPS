@@ -89,7 +89,7 @@ Class UsergroupConfigurationgData {
     }
 }
 
-Function Get-Menu {
+Function New-Menu {
     Param(
         [UsergroupConfigurationgData] $ConfigurationData
     )
@@ -193,6 +193,7 @@ Function Set-BaseContent {
 
             $AllIncludesFiles = Get-ChildItem -Path $IncludesFolder
             foreach($File in $AllIncludesFiles){
+                write-verbose "Copying template file $($File.FullName to $($DestinationIncludesFolder)) "
                 Copy-Item -Path $File.FullName -Destination $DestinationIncludesFolder -Force
             }
 
@@ -250,9 +251,117 @@ Function Get-SBData {
     return $script:sbdata
 }
 
+#Starts new here!!!
+
+<#
+    Folder structure is as follows:
+    SiteName
+        SiteConfigs
+            SupportsSubFolder/config.json
+            AllConfigFiles.json
+            index.json
+            team.json
+            about.json
+        SiteInputs
+          index.ps1
+          about.ps1
+          team.ps1  
+        sitepages
+            team.html
+            about.html
+        index.html #Index.html needs to be at the root of the folder structure, as Github pages doesn't support index.html files in subfolders (yet?)
+
+            
+
+#>
+
+Class Site {
+    [System.IO.DirectoryInfo]$Path
+    [object[]]$SiteConfigs #Contains config.json files with site speicifics 
+    [Object[]]$SiteInputs # Contains the PSHTML code to generate the html files
+    [Object[]]$SitePages #Array of generated HTML files (based on the pshtml files + config)
+
+    Site([System.IO.DirectoryInfo]$Path){
+        $this.Path = $Path
+        $this.LoadSitePages()
+    }
+
+    hidden LoadSitePages(){
+        $PagesPath = Join-Path -Path $this.Path.FullName -ChildPath "SitePages"
+        $AllPages = Get-ChildItem -Path $PagesPath
+
+        foreach($Page in $AllPages){
+            write-verbose "$($Page)"
+            $this.SitePages += [SitePageFile]::New($Page.FullName)
+        }
+    }
+    
+}
+
+
+Class SitePageFile {
+    [String]$name
+    [System.IO.FileInfo]$Path
+    [bool]$hasconfigfile
+    [SitePageConfig]$config
+
+    SitePageFile([System.IO.FileInfo]$Path){
+        if($Path.Exists){
+            $this.Path = $Path
+        }
+
+        $configfileName = "$($this.name)" + ".json"
+        $conf = Get-ChildItem -Path "../SiteInputs" -Filter $configfileName
+        if($conf){
+            $this.hasconfigfile = $true
+            $this.configfile = [SitePageConfig]::new($conf.FullName)
+        }
+
+    }
+
+    [bool] HasConfigFile($Name){
+        return $true
+        #Should get from configfile
+    }
+}
+
+Class SitePageConfig {
+    [System.IO.FileInfo]$Path
+    [bool]$Present
+    [object]$ConfigData
+
+
+    SitePageConfig([System.IO.FileInfo]$Path){
+        $this.Path = $Path
+        $this.Fetch()
+        
+    }
+
+    Fetch(){
+        $this.Path.Refresh() #Refreshes to the latest state
+        if($this.Path.Exists){
+            $this.Present = $True
+            $this.ConfigData = Get-content -Path $this.path.FullName | ConvertFrom-Json
+        }else{
+            $this.Present = $false
+        }
+    }
+
+    [object]GetConfigData(){
+        return $this.ConfigData
+    }
+}
+
+$VerbosePreference = "Continue"
+$Site = [Site]::New("C:\Users\Stephane\Code\HatchingPS\Woop\")
+
+$PageFile = [SitePageFile]::New("C:\Users\Stephane\Code\HatchingPS\Woop\SiteInputs\about.ps1")
+$p = [SitePageConfig]::New("C:\Users\Stephane\Code\MTG-Strasbourg\website\Inputs\about.json")
+
 $hash = @{}
 $TemplatesPath = [system.io.directoryinfo](join-Path -Path $PSScriptRoot -ChildPath "templates")
 $hash.templates = $TemplatesPath
+$Hash.Site = $null
 
 $script:sbdata = new-object -TypeName psobject -Property $hash
 
