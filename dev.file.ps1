@@ -34,19 +34,7 @@ Class Site {
         Return $this.SitePagesPath
     }
 
-    [void] LoadSiteInputs(){
-        $InputsPath = $This.GetSiteInputsPath()
-        $items = Get-ChildItem -Path $InputsPath.FullName
 
-        foreach($item in $items){
-            write-verbose "$($Item)"
-            $sif = [SiteInputFile]::New($item.FullName)
-            
-            $RelPath = [System.Io.Path]::GetRelativePath($this.SiteInputsPath.FullName,$item.FullName)
-            $sif.SetRelativePath($RelPath)
-            $this.SiteInputs += $sif
-        }
-    }
 
     [void] hidden  LoadSitePages(){
         $pp = $this.GetSitePagesPath()
@@ -74,10 +62,37 @@ Class Site {
         }
     }
 
-    [SitePageConfigFile] GetSiteConfigFile([String]$Name){
+    [void] LoadSiteInputs(){
+        $InputsPath = $This.GetSiteInputsPath()
+        $items = Get-ChildItem -Path $InputsPath.FullName
 
-        Return $this.SiteConfigs | ? {$_.Name -eq $Name} #Need to test this. Arriving in Bern
+        foreach($item in $items){
+            write-verbose "$($Item)"
+            $sif = [SiteInputFile]::New($item.FullName)
+            
+            $RelPath = [System.Io.Path]::GetRelativePath($this.SiteInputsPath.FullName,$item.FullName)
+            $sif.SetRelativePath($RelPath)
+            $PotentialConfigRelPath = $RelPath.Replace(".ps1",".json")
+            $configFile = $this.GetSiteConfigFileByRelativePath($PotentialConfigRelPath)
+            if($configFile){
+                $sif.SetConfigFile($configFile)
+            }
+            $this.SiteInputs += $sif
+
+            
+        }
+
+
+    }
+
+    [SitePageConfigFile] GetSiteConfigFileByName([String]$Name){
+
+        Return $this.SiteConfigs | ? {$_.Name -eq $Name} 
         
+    }
+
+    [SitePageConfigFile]GetSiteConfigFileByRelativePath([String]$RelativePath){
+        Return $this.SiteConfigs | ? {$_.RelativePath -eq $RelativePath}
     }
 
     

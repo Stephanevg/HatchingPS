@@ -1,0 +1,22 @@
+{
+    "sessions": [
+        {
+            "id": "0001",
+            "presenter_name": "Stéphane van Gulick",
+            "twitter": "stephanevg",
+            "website": "www.powershelldistrict.com",
+            "title": "00001-20230129-Online-Building static web pages in no time! (Introduction to PSHTML)",
+            "abstract": "In this presentation Stéphane will present the fundamentals of PSHTML, and teach how one can create static html pages using powershell in no time!",
+            "recording": "https://www.youtube.com/watch?v=X6ZtS7rWQ9M"
+        },
+        {
+            "id": "0001",
+            "presenter_name": "",
+            "twitter": "",
+            "website": "",
+            "title": "00001-Date-Online-Title_of_the_Talk",
+            "abstract": "Short description of the talk",
+            "recording": "VIDEO_URL"
+        }
+    ]
+}
